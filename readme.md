@@ -2,7 +2,7 @@
 
 TC Prospecting Database is a WordPress plugin and demo application that tracks prospecting and mining efforts within a simulated SWC galaxy. It allows users to create and design planets, manage resource deposits, import planet data from an external database, view detailed changelogs of changes, generate prospecting reports, and even upload XML files to batch update deposits.
 
-This project showcases a modular PHP codebase integrated into WordPress along with Docker configuration for a fast, portable demo environment. It’s designed as both a proof-of-concept.
+This project showcases a modular PHP codebase integrated into WordPress along with Docker configuration for a fast, portable demo environment. It’s designed as a proof-of-concept.
 
 ---
 

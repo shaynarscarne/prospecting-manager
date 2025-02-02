@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  wordpress:
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: example
+      WORDPRESS_DB_PASSWORD: example
+      WORDPRESS_DB_NAME: example
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', 'http://localhost:8000');
+        define('WP_SITEURL', 'http://localhost:8000');
+    networks:
+      - prospecting-network
+    depends_on:
+      db:
+        condition: service_healthy
+    command: /bin/sh -c "/usr/local/bin/boot.sh && apache2-foreground"
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: example
+      MYSQL_USER: example
+      MYSQL_PASSWORD: example
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent", "-u", "example", "-pexample"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    volumes:
+       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - prospecting-network
+
+networks:
+  prospecting-network:
+    driver: bridge

@@ -1,0 +1,218 @@
+/* Woocommerce New Arrivals */
+.section-woo-products {
+
+	.wc-block-grid {
+
+		&__product-title {
+			font-size: var(--wp--preset--font-size--medium);
+		}
+
+		&__product-price {
+			font-size: var(--wp--preset--font-size--medium);
+
+			ins {
+				font-size: var(--wp--preset--font-size--large);
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+/* Woocommerce Featured Products */
+
+.prespa-featured-products-wrapper {
+
+	.featured-product-item {
+
+		@include relative;
+		display: inline-block;
+
+		.entry-title a,
+		.price {
+			color: var(--wp--preset--color--white);
+		}
+
+		.entry-title {
+			margin: 0;
+			font-size: var(--wp--preset--font-size--medium);
+			color: #fff;
+		}
+
+		> a {
+			display: block;
+			overflow: hidden;
+			line-height: 0;
+		}
+
+		figure {
+			display: inline;
+		}
+
+		img {
+			padding-bottom: 0;
+			filter: brightness(85%);
+
+			@include prespa-zoom;
+		}
+
+		.price {
+			font-size: 1rem;
+		}
+
+		.product-details {
+			padding-left: 1rem;
+		}
+
+		.cart-details {
+
+			@include absolute( bottom 1.5rem right 1rem );
+
+			> a {
+				font-size: var(--wp--preset--font-size--small);
+				font-weight: 700;
+			}
+		}
+	}
+
+	.product-meta {
+
+		@include absolute( bottom 0 );
+		width: 100%;
+	}
+
+	.added_to_cart.wc-forward {
+
+		&::after {
+			font-family: WooCommerce;
+			content: "\e017";
+			margin-left: 0.53em;
+			vertical-align: bottom;
+		}
+	}
+
+}
+
+/* Featured products pattern hover effect */
+@media (min-width: 54rem) {
+
+	.section-woo-products {
+
+		.wc-block-grid {
+
+			&__product {
+				position: relative;
+
+				&-image {
+					display: block;
+					overflow: hidden;
+					height: 360px;
+
+					&:hover {
+
+						~ .wc-block-grid__product-add-to-cart {
+							opacity: 1;
+						}
+					}
+
+					img {
+						object-fit: cover;
+						padding-bottom: 0;
+						height: 100%;
+
+						@include prespa-zoom;
+
+						&:hover {
+							filter: brightness(85%);
+							width: 100%;
+
+							a {
+								display: inline;
+							}
+						}
+					}
+				}
+
+				&-rating {
+
+					+ .wc-block-grid__product-add-to-cart {
+						top: 64.5%;
+					}
+				}
+
+				&-add-to-cart {
+					position: absolute;
+					top: 69.5%;
+					width: 100%;
+					opacity: 0;
+					transition: 0.6s all;
+					font-weight: 700;
+
+					&:hover {
+						opacity: 1;
+					}
+
+					> button {
+						width: 100%;
+					}
+				}
+
+			}
+		}
+
+	}
+
+	/* Recent products on load animation */
+	.section-woo-products {
+
+		.wc-block-grid__product {
+			transition: 0.4s ease-in-out;
+		}
+
+		.wc-block-grid__product:nth-child(1) {
+			transform: translateX(-1em);
+		}
+
+		.wc-block-grid__product:nth-child(2) {
+			transform: translateY(-1em);
+			transition-delay: 0.25s;
+		}
+
+		.wc-block-grid__product:nth-child(3) {
+			transform: translateY(1em);
+			transition-delay: 0.3s;
+		}
+
+		.wc-block-grid__product:nth-child(4) {
+			transform: translateX(1em);
+			transition-delay: 0.4s;
+		}
+	}
+
+	.section-woo-products.animated {
+
+		.wc-block-grid__product {
+			transform: translate(0, 0);
+		}
+	}
+
+	.prespa-featured-products-wrapper {
+		display: flex;
+		gap: 1.5rem;
+
+		.product-details {
+			width: 60%;
+		}
+
+		.cart-details {
+
+			> a {
+				padding: 0.5rem 1rem !important;
+			}
+		}
+
+		img {
+			height: 380px;
+			object-fit: cover;
+		}
+	}
+}

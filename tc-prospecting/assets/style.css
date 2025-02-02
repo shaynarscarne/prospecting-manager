@@ -1,0 +1,198 @@
+/* Basic container for planet view */
+.planet-view-wrapper {
+  background: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Planet details area */
+.planet-details {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.planet-details h2 {
+  margin-top: 0;
+}
+.planet-details p {
+  line-height: 1.6;
+}
+
+/* Terrain Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  overflow: auto;
+}
+
+.modal-content {
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #272828 !important; /* Dark background */
+  width: 40%; /* Adjust width as needed */
+  max-width: 600px;
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Terrain Grid Styling */
+.terrain-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.terrain-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.terrain-option img {
+  margin-bottom: 5px;
+  width: 60px;
+  height: 60px;
+}
+
+.terrain-option p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+/* Cancel Button */
+#cancelTerrainBtn {
+  display: block;
+  margin: auto;
+}
+
+.modal-actions {
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Resource grid inside modals */
+.resource-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.resource-option {
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+/* Button styling */
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+}
+.btn-primary {
+  background-color: #0073aa;
+  border: 1px solid #006799;
+  color: #fff;
+}
+.btn-secondary {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+/* Modal header and changelog */
+.modal-header {
+  margin-bottom: 10px;
+}
+.changelog-container {
+  margin-bottom: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Loading spinner */
+#loadingSpinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#planet-info{
+  background: #fff; 
+  padding: 20px; 
+  border-radius: 5px; 
+  margin-bottom: 20px;
+}
+
+#terrain-grid {
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.terrain-table {
+  border-collapse: collapse;
+  table-layout: auto;
+  border-spacing: 0;
+}
+.terrainTH {
+  text-align: center;
+}
+
+.terrainTD {
+  text-align: center; 
+  border: 1px solid #ddd; 
+  padding: 0 !important; 
+  width: 62px; 
+  height: 62px; 
+  cursor: pointer;
+  /* Ensure cell contents are flush */
+  line-height: 0;
+}
+/* Remove spacing from internal divs */
+.terrainTD div {
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+/* Make images fill cells */
+.terrainTD img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.terrainTD div {
+  line-height: 0;
+  font-size: 0;
+}
+#modify-resource-option{
+  cursor:pointer; 
+  display:inline-block; 
+  margin:5px;
+}

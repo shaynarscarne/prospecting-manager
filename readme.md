@@ -91,15 +91,17 @@ This project showcases a modular PHP codebase integrated into WordPress along wi
 
 1. **Clone the Repository**
 
-git clone https://github.com/<your-username>/tc-prospecting.git
-cd tc-prospecting
+```
+git clone https://github.com/shaynarscarne/prospecting-manager.git
+```
 
 
 2. **Build and Start the Containers**
 
 Use Docker Compose to build and start your local WordPress environment:
-
+```
 docker-compose up --build
+```
 After a successful build, the terminal will display a link. By default, the WordPress site is accessible at:
 http://localhost:8000/prospecting-database
 
